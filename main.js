@@ -19,8 +19,6 @@ function createArtNetPacket() {
   const artnet = new ArtNetPacket(universe);
   const data = new Uint8Array(512);
 
-  console.log(channels);
-
   channels.forEach((channel) => {
     const channelIndex = parseInt(channel.channel);
     if (channelIndex >= 0 && channelIndex <= 512) {
@@ -29,7 +27,6 @@ function createArtNetPacket() {
   });
 
   artnet.setData(data);
-  console.log(data);
 
   const packet = artnet.getPacket();
 
